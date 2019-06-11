@@ -11,6 +11,15 @@ class WorkshopSelfIntroSkill(MycroftSkill):
 
     # hit API to get content on screen
     @intent_handler(IntentBuilder("").require("Hello").require("Workshop"))
+    def handle_hello_intent(self, message):
+    # will randomly speak one line from hello.dialog
+    self.speak_dialog("hello")
+
+
+
+
+
+
     def handle_content_one(self, message):
         url ="someurl/content1"
         r=requests.get(url)
