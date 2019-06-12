@@ -26,7 +26,7 @@ class WorkshopSelfIntroSkill(MycroftSkill):
         self.speak_dialog('confirm')
 
         # get content from db
-        url ="someurl/content1"
+        url ="someurl/tour"
         r=requests.get(url)
         json_output=r.json()
         output=json_output['data']
@@ -46,7 +46,7 @@ class WorkshopSelfIntroSkill(MycroftSkill):
         self.speak_dialog("confirm")
 
         # get content from db
-        url ="someurl/content1"
+        url ="someurl/background"
         r=requests.get(url)
         json_output=r.json()
         output=json_output['data']
@@ -65,7 +65,7 @@ class WorkshopSelfIntroSkill(MycroftSkill):
         self.speak_dialog("portfolio.confirm")
 
         # get content from db
-        url ="someurl/content1"
+        url ="someurl/portfolio"
         r=requests.get(url)
         json_output=r.json()
         output=json_output['data']
