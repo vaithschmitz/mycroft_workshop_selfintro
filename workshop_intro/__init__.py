@@ -14,14 +14,14 @@ class WorkshopSelfIntroSkill(MycroftSkill):
         self.already_had_background = False
         
 
-    @intent_handler(IntentBuilder("").require("Hello")
+    @intent_handler(IntentBuilder("HelloIntent").require("Hello")
     def handle_hello_intent(self, message):
         # will randomly speak one line from arg
         self.speak_dialog("hello")
         self.speak_dialog('intro')
 
     # hit API to get content on screen
-    @intent_handler(IntentBuilder("").require("Tour")
+    @intent_handler(IntentBuilder("TourIntent").require("Tour")
     def handle_tour_intent(self, message):
         self.speak_dialog('confirm')
 
@@ -41,7 +41,7 @@ class WorkshopSelfIntroSkill(MycroftSkill):
         
 
 
-    @intent_handler(IntentBuilder("").require("Background")
+    @intent_handler(IntentBuilder("BackgroundIntent").require("Background")
     def handle_background_intent(self, message):
         self.speak_dialog("confirm")
 
@@ -60,7 +60,7 @@ class WorkshopSelfIntroSkill(MycroftSkill):
             self.speak('tour.or.portfolio')
         
 
-    @intent_handler(IntentBuilder("").require("Portfolio")
+    @intent_handler(IntentBuilder("PortfolioIntent").require("Portfolio")
     def handle_portfolio_intent(self, message):
         self.speak_dialog("portfolio.confirm")
 
@@ -72,11 +72,6 @@ class WorkshopSelfIntroSkill(MycroftSkill):
         events=output["Events"]
 
         # track content end, hit final message
-
-
-    
-
-
 
 
     # The "stop" method defines what Mycroft does when told to stop during
