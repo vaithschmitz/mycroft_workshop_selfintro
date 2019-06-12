@@ -10,55 +10,51 @@ class WorkshopSelfIntroSkill(MycroftSkill):
         super(WorkshopSelfIntroSkill, self).__init__(name="WorkshopSelfIntroSkill")
         
 
-    # hit API to get content on screen
     @intent_handler(IntentBuilder("").require("Hello")
     def handle_hello_intent(self, message):
-    # will randomly speak one line from hello.dialog
-    self.speak_dialog("hello")
+        # will randomly speak one line from arg
+        self.speak_dialog("hello")
+        self.speak_dialog('intro')
 
     # hit API to get content on screen
     @intent_handler(IntentBuilder("").require("Tour")
-    def handle_hello_intent(self, message):
-    # will randomly speak one line from hello.dialog
-    self.speak_dialog("hello")
+    def handle_tour_intent(self, message):
+        self.speak_dialog('confirm')
 
-    # hit API to get content on screen
-    @intent_handler(IntentBuilder("").require("Hello").require("Workshop"))
-    def handle_hello_intent(self, message):
-    # will randomly speak one line from hello.dialog
-    self.speak_dialog("hello")
-
-
-
-
-
-    def handle_content_one(self, message):
+        # get content from db
         url ="someurl/content1"
         r=requests.get(url)
         json_output=r.json()
         output=json_output['data']
         events=output["Events"]
+        
 
-        self.speak_dialog(something something confirmation)
+
+    @intent_handler(IntentBuilder("").require("Background")
+        def handle_background_intent(self, message):
+            self.speak_dialog("confirm")
+
+            # get content from db
+            url ="someurl/content1"
+            r=requests.get(url)
+            json_output=r.json()
+            output=json_output['data']
+            events=output["Events"]
+        
+
+    @intent_handler(IntentBuilder("").require("Portfolio")
+    def handle_background_intent(self, message):
+        self.speak_dialog("confirm")
+
+        # get content from db
+        url ="someurl/content1"
+        r=requests.get(url)
+        json_output=r.json()
+        output=json_output['data']
+        events=output["Events"]
+    
 
 
-    # The "handle_xxxx_intent" function is triggered by Mycroft when the
-    # skill's intent is matched.  The intent is defined by the IntentBuilder()
-    # pieces, and is triggered when the user's utterance matches the pattern
-    # defined by the keywords.  In this case, the match occurs when one word
-    # is found from each of the files:
-    #    vocab/en-us/Hello.voc
-    #    vocab/en-us/World.voc
-    # In this example that means it would match on utterances like:
-    #   'Hello world'
-    #   'Howdy you great big world'
-    #   'Greetings planet earth'
-    @intent_handler(IntentBuilder("").require("Hello").require("World"))
-    def handle_hello_world_intent(self, message):
-        # In this case, respond by simply speaking a canned response.
-        # Mycroft will randomly speak one of the lines from the file
-        #    dialogs/en-us/hello.world.dialog
-        self.speak_dialog("hello.world")
 
 
     # The "stop" method defines what Mycroft does when told to stop during
@@ -66,7 +62,7 @@ class WorkshopSelfIntroSkill(MycroftSkill):
     # is extremely simple, there is no need to override it.  If you DO
     # need to implement stop, you should return True to indicate you handled
     # it.
-    #
+    
     # def stop(self):
     #    return False
 
