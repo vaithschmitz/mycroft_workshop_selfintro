@@ -27,6 +27,8 @@ class WorkshopSelfIntroSkill(MycroftSkill):
         json_output=r.json()
         output=json_output['data']
         events=output["Events"]
+
+        # track content end and hit next intent
         
 
 
@@ -52,6 +54,10 @@ class WorkshopSelfIntroSkill(MycroftSkill):
         json_output=r.json()
         output=json_output['data']
         events=output["Events"]
+
+        # track content end, hit final message
+
+        
     
 
 
