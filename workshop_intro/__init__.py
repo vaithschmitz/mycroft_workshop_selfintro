@@ -1,6 +1,7 @@
 from adapt.intent import IntentBuilder
 from mycroft.skills.core import MycroftSkill, intent_handler
 from mycroft.util.log import LOG
+import requests
 
 class WorkshopSelfIntroSkill(MycroftSkill):
 
@@ -10,11 +11,22 @@ class WorkshopSelfIntroSkill(MycroftSkill):
         
 
     # hit API to get content on screen
-    @intent_handler(IntentBuilder("").require("Hello").require("Workshop"))
+    @intent_handler(IntentBuilder("").require("Hello")
     def handle_hello_intent(self, message):
     # will randomly speak one line from hello.dialog
     self.speak_dialog("hello")
 
+    # hit API to get content on screen
+    @intent_handler(IntentBuilder("").require("Tour")
+    def handle_hello_intent(self, message):
+    # will randomly speak one line from hello.dialog
+    self.speak_dialog("hello")
+
+    # hit API to get content on screen
+    @intent_handler(IntentBuilder("").require("Hello").require("Workshop"))
+    def handle_hello_intent(self, message):
+    # will randomly speak one line from hello.dialog
+    self.speak_dialog("hello")
 
 
 
