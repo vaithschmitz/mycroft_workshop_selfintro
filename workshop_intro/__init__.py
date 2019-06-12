@@ -73,17 +73,10 @@ class WorkshopSelfIntroSkill(MycroftSkill):
 
         # track content end, hit final message
 
+    # crash out when mycroft is stopped TEST THIS!
+    def stop(self):
+       exit()
 
-    # The "stop" method defines what Mycroft does when told to stop during
-    # the skill's execution. In this case, since the skill's functionality
-    # is extremely simple, there is no need to override it.  If you DO
-    # need to implement stop, you should return True to indicate you handled
-    # it.
-    
-    # def stop(self):
-    #    return False
-
-# The "create_skill()" method is used to create an instance of the skill.
-# Note that it's outside the class itself.
+# create instance
 def create_skill():
     return WorkshopSelfIntroSkill()
