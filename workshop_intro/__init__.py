@@ -32,6 +32,7 @@ class WorkshopSelfIntroSkill(MycroftSkill):
         output=json_output['data']
         events=output["Events"]
 
+        self.already_had_tour = True
         # track content end and hit next intent
         # if already had background, go straight to portfolio
         if self.already_had_background:
@@ -51,6 +52,8 @@ class WorkshopSelfIntroSkill(MycroftSkill):
         json_output=r.json()
         output=json_output['data']
         events=output["Events"]
+
+        self.already_had_background = True
 
         # track content end and hit next intent
         # if already had tour, go straight to portfolio
@@ -75,6 +78,7 @@ class WorkshopSelfIntroSkill(MycroftSkill):
 
     # crash out when mycroft is stopped TEST THIS!
     def stop(self):
+        self.speak_dialog("goodbye")
        exit()
 
 # create instance
